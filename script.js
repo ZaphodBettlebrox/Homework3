@@ -5,7 +5,6 @@ var copyBtn = document.querySelector("#copy");
 
 //this function will fire when you click the generate password button on the page.  I've set it to alert "You've clicked a button" and return a password of password for now. Update it to make your password
 
-
 var specialCharacters = ["!", "#", "$", "%", "&", "*"];
 
 var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -67,7 +66,6 @@ var uppercaseCharacters = [
 ];
 
 function generatePassword(characterLength) {
-
   //YOUR CODE HERE
 
   //how log of a password between 8 and 128 characters?
@@ -75,11 +73,11 @@ function generatePassword(characterLength) {
     "How long of a password do you want between 8 and 128 characters?"
   );
   if (characterLength <= 7) {
-    alert("Please enter a number between 8 and 128");
+    alert("try again");
   }
 
   if (characterLength > 128) {
-    alert("Please enter a number between 8 and 128");
+    alert("try again");
   } else if (characterLength > 7 && characterLength <= 128) {
     console.log("password length: " + characterLength);
 
@@ -91,31 +89,27 @@ function generatePassword(characterLength) {
 
     //do you want lowercase characters?
     var askLowercase = confirm("Do you want lowercase characters?");
-    
+
     //do you want uppercase characters?
     var askUppercase = confirm("Do you want uppercase characters?");
-
-    //makes sure at least one character is selected to generate password
-    if (askSpecial && askNumeric && askLowercase && askUppercase === null) {
-      alert("Please try again and say yes to at least one character");
-    }
   }
+  //makes sure at least one character is selected to generate password
+  if (askSpecial===false&&askNumeric===false&&askLowercase===false&&askUppercase===false) {
+    alert("Please try again and say yes to at least one character");
+  }
+
   //generate password
   password = "";
 
-//   for (let index = 0; index <characterLength; index++) {
-while( password.length < characterLength){
+  //   for (let index = 0; index <characterLength; index++) {
+  while (password.length < characterLength) {
     if (askSpecial === true) {
       password +=
-        specialCharacters[
-          Math.floor(specialCharacters.length * Math.random())
-        ];
+        specialCharacters[Math.floor(specialCharacters.length * Math.random())];
     }
     if (askNumeric === true) {
       password +=
-        numericCharacters[
-          Math.floor(numericCharacters.length * Math.random())
-        ];
+        numericCharacters[Math.floor(numericCharacters.length * Math.random())];
     }
     if (askLowercase === true) {
       password +=
@@ -129,11 +123,10 @@ while( password.length < characterLength){
           Math.floor(uppercaseCharacters.length * Math.random())
         ];
     }
-
-}
-//display password
-console.log("password: " + password);
-return password;
+  }
+  //display password
+  console.log("password: " + password);
+  return password;
 }
 
 // Write password to the #password input

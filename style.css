@@ -1,0 +1,66 @@
+body{
+    background: black;
+    margin: 0;
+}
+.header{
+    background: rgb(15, 158, 202);
+    height: 60px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-size: 2vw;
+    
+}
+h1{
+    margin: auto 0;
+}
+
+h2{
+    margin: 3vh 0px 3vh 0px;
+}
+.passwordbox{
+    height: 30vh;
+    border-radius: 25px;
+    text-align: center;
+    padding: 2vw;
+    margin-top: 20vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    background: rgb(224, 224, 224);
+    border: solid 5px rgb(15, 158, 202);
+
+}
+.passwordthing{
+    margin-top: 2vh;
+    padding: 0;
+}
+.buttons{
+    border-radius: 15px;
+    height: 40px;
+    background: rgb(220, 255, 255);
+    border: black;
+    margin: 5vh
+}
+.buttons:hover, .buttons:active{
+    background: rgb(158, 197, 197);
+    color: white;
+}
+@media only screen and (max-width: 1100px){
+    .header{
+        font-size: 3vw;
+    }
+}
+@media only screen and (max-width: 510px){
+    .passwordbox{
+        height: 60vh;
+        margin-top: 10vh;
+    }
+    .header{
+        padding-top: 15px;
+        font-size: 15px;
+    }
+    .buttons{
+        margin-top: 10vh;
+        margin-bottom: 0px;
+    }
+}
