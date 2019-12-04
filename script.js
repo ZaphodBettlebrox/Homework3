@@ -65,19 +65,25 @@ var uppercaseCharacters = [
   "Z"
 ];
 
+var allowCopy = false;
+console.log("allow copy: " + allowCopy);
+
 function generatePassword(characterLength) {
   //YOUR CODE HERE
-
+  var allowCopy = false;
+  console.log("allow copy: " + allowCopy);
   //how log of a password between 8 and 128 characters?
   var characterLength = prompt(
     "How long of a password do you want between 8 and 128 characters?"
   );
   if (characterLength <= 7) {
     alert("try again");
+    return (placeholder = "Your Secure Password");
   }
 
   if (characterLength > 128) {
     alert("try again");
+    return (placeholder = "Your Secure Password");
   } else if (characterLength > 7 && characterLength <= 128) {
     console.log("password length: " + characterLength);
 
@@ -92,10 +98,19 @@ function generatePassword(characterLength) {
 
     //do you want uppercase characters?
     var askUppercase = confirm("Do you want uppercase characters?");
+
+    var allowCopy = true;
+    console.log("allow copy: " + allowCopy);
   }
   //makes sure at least one character is selected to generate password
-  if (askSpecial===false&&askNumeric===false&&askLowercase===false&&askUppercase===false) {
+  if (
+    askSpecial === false &&
+    askNumeric === false &&
+    askLowercase === false &&
+    askUppercase === false
+  ) {
     alert("Please try again and say yes to at least one character");
+    return (placeholder = "Your Secure Password");
   }
 
   //generate password
@@ -129,6 +144,10 @@ function generatePassword(characterLength) {
   return password;
 }
 
+function clearText() {
+  document.getElementById("password").value = " ";
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -140,11 +159,19 @@ function writePassword() {
   copyBtn.focus();
 }
 
+// BONUS
+
 function copyToClipboard() {
-  // BONUS
+    var copyText = document.getElementById("password");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+  
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 // BONUS EVENT LISTENER
+copyBtn.addEventListener("click", copyToClipboard);
