@@ -1,6 +1,4 @@
-# Project Title
-
-Random Password Generator
+# Random Password Generator
 
 Website implimenting Java Script to create a random password generator application.
 
